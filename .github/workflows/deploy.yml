@@ -1,70 +1,37 @@
-name: Deploy Pages
+name: docs
 
-# 触发条件，push到main分支或者pull request到main分支
 on:
+  # 每当 push 到 VuePress 分支时触发部署
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
-
-  # 支持手动在工作流上触发
+  # 手动触发部署
   workflow_dispatch:
 
-# 设置时区
-env:
-  TZ: Asia/Shanghai
-
-# 权限设置
-permissions:
-  # 允许读取仓库内容的权限。
-  contents: read
-  # 允许写入 GitHub Pages 的权限。
-  pages: write
-  # 允许写入 id-token 的权限。
-  id-token: write
-
-# 并发控制配置
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
-# 定义执行任务
 jobs:
-  # 构建任务
-  build:
+  docs:
     runs-on: ubuntu-latest
 
-    # node v20 运行
-    strategy:
-      matrix:
-        node-version: [20]
-
     steps:
-      # 拉取代码
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          # 保留 Git 信息
+          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
 
-      # 设置使用 Node.js 版本
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          # 选择要使用的 pnpm 版本
+          version: 8
+          # 使用 pnpm 安装依赖
+          run_install: true
+
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-
-      # 使用 最新的 PNPM
-      # 你也可以指定为具体的版本
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        with:
-          version: latest
-          # version: 9
-          run_install: false
-
-        # 安装依赖
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          # 选择要使用的 node 版本
+          node-version: 18
+          # 缓存 pnpm 依赖
+          cache: pnpm
 
         # 构建项目
       - name: Build blog project
@@ -72,25 +39,15 @@ jobs:
           echo ${{ github.workspace }}
           node scripts/build-all.js
 
-        # 资源拷贝
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./dist
-          destination: ./_site
-
-        # 上传 _site 的资源，用于后续部署
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-
-  # 部署任务
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
+      # 查看 workflow 的文档来获取更多信息
+      # @see https://github.com/crazy-max/ghaction-github-pages
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          # 部署到 website 分支
+          target_branch: website
+          # 部署目录为 VuePress 的默认输出目录
+          build_dir: dist
+        env:
+          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
