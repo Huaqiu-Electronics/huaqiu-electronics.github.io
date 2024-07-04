@@ -3,13 +3,13 @@
 const shell = require('shelljs');
 
 // Run the main build
-if (shell.exec('pnpm build').code !== 0) {
+if (shell.exec('npm run build').code !== 0) {
   shell.echo('Error: Main build failed');
   shell.exit(1);
 }
 
 // Run the docs build
-if (shell.exec('pnpm docs:build').code !== 0) {
+if (shell.exec('npm run docs:build').code !== 0) {
   shell.echo('Error: Docs build failed');
   shell.exit(1);
 }

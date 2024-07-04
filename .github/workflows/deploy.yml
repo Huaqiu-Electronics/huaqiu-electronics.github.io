@@ -18,25 +18,17 @@ jobs:
           fetch-depth: 0
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        # Setup .npmrc file to publish to npm
+        uses: actions/setup-node@v4
         with:
-          # 选择要使用的 pnpm 版本
-          version: 8
-          # 使用 pnpm 安装依赖
-          run_install: true
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          # 选择要使用的 node 版本
-          node-version: 18
-          # 缓存 pnpm 依赖
-          cache: pnpm
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
 
         # 构建项目
       - name: Build blog project
         run: |
           echo ${{ github.workspace }}
+          npm install
           node scripts/build-all.js
 
       # 查看 workflow 的文档来获取更多信息
