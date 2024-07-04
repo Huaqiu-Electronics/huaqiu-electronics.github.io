@@ -47,21 +47,20 @@ jobs:
           # 保留 Git 信息
           fetch-depth: 0
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          # 选择要使用的 pnpm 版本
-          version: 8
-          # 使用 pnpm 安装依赖
-          run_install: true
-
-      - name: Setup Node.js
+      # 设置使用 Node.js 版本
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          # 选择要使用的 node 版本
-          node-version: 18
-          # 缓存 pnpm 依赖
-          cache: pnpm
+          node-version: ${{ matrix.node-version }}
+
+      # 使用 最新的 PNPM
+      # 你也可以指定为具体的版本
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: latest
+          # version: 9
+          run_install: false
 
         # 安装依赖
       - name: Install dependencies
