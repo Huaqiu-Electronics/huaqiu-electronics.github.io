@@ -29,7 +29,7 @@ jobs:
         run: |
           echo ${{ github.workspace }}
           npm install
-          node scripts/build-all.js
+          node scripts/build-all-npm.js
 
       # 查看 workflow 的文档来获取更多信息
       # @see https://github.com/crazy-max/ghaction-github-pages
