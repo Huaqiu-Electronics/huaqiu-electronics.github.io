@@ -7,6 +7,14 @@ tag:
 
 # Compiler
 
-## Desktop
+## Pipeline
 
-## Web
+### Lexer
+
+### Parser
+
+## Application
+
+### Static check
+
+### Transpiler
