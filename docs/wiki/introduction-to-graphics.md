@@ -5,7 +5,7 @@ tag:
   - 技术
 ---
 
-# Canvas
+# Graphics
 
 ## Kicad GAL
 
