@@ -2,6 +2,8 @@
 tag:
   - 插件
   - KiCad
+  - 开源
+  - 技术
 ---
 
 # 华秋 PCB Active Manufacturing

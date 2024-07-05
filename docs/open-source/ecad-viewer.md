@@ -2,7 +2,8 @@
 tag:
   - EDA
   - KiCad
-sidebar: false
+  - 技术
+  - 开源
 ---
 
 # ECAD-Viewer

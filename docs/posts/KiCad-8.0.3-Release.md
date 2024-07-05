@@ -3,7 +3,7 @@ description: The KiCad project is proud to announce the version 8.0.3 bug fix re
 title: KiCad 8.0.3 Release
 readingTime: false
 tag:
-  - EDA
+  - 宣发
   - KiCad
 top: 1
 sticky: 2
