@@ -7,6 +7,10 @@ on:
   # 手动触发部署
   workflow_dispatch:
 
+# 设置时区
+env:
+  TZ: Asia/Shanghai
+
 jobs:
   docs:
     runs-on: ubuntu-latest
