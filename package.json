@@ -1,11 +1,11 @@
 {
-  "name": "kicad-huaqiu-homepage",
+  "name": "kicad-huaqiu-docs",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --host",
-    "docs:dev": "vitepress dev docs",
+    "docs:dev": "vitepress dev docs --host",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "build:all": "node scripts/build-all.js"
