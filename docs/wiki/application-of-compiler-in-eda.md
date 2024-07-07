@@ -166,6 +166,8 @@ public:
 
 ## Type Checker vs ERC
 
+### Introduction
+
 [Type Checker](https://en.wikipedia.org/wiki/Type_system)
 
 > In computer programming, a type system is a logical system comprising a set of rules that assigns a property called a type (for example, integer, floating point, string) to every term (a word, phrase, or other set of symbols). Usually the terms are various language constructs of a computer program, such as variables, expressions, functions, or modules.[1] A type system dictates the operations that can be performed on a term. For variables, the type system determines the allowed values of that term.
@@ -174,9 +176,7 @@ public:
 
 > An electrical rule check (ERC) ensures that integrated circuits work as they should. ERC makes sure a design follows a set of electrical rules defined by the designer or industry standards. ERC errors can lead to reduced yields or circuit malfunctions after delivery, so product success depends on finding and fixing them. Using connectivity and device information, ERC reviews electrical design rules. These checks are enabled by design rule checking (DRC) and layout versus schematic (LVS) verification tools.
 
-### Typical ERC and Type Checker
-
-### ERC
+### ERC Examples
 
 - [KiCad ERC](https://gitlab.com/kicad/code/kicad/-/blob/master/eeschema/erc/erc.h)
 
@@ -506,7 +506,7 @@ private:  // Methods
 
 ```
 
-### Type Checker
+### Type Checker Example
 
 - [python type checker](https://github.com/microsoft/pyright/blob/main/packages/pyright-internal/src/analyzer/checker.ts)
 
