@@ -553,5 +553,5 @@ export class Checker extends ParseTreeWalker {
 | Item   | TypeChecker  |              ERC |
 | :----- | :----------: | ---------------: |
 | Input  |     Code     |            SExpr |
-| IR     |     AST      |         Net List |
+| IR     |     AST      |          Netlist |
 | Output | Syntax Error | Electrical Error |
