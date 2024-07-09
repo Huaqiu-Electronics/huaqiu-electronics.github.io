@@ -550,8 +550,8 @@ export class Checker extends ParseTreeWalker {
 
 ### Comparison
 
-| Item   | TypeChecker  |              ERC |
-| :----- | :----------: | ---------------: |
-| Input  |     Code     |            SExpr |
-| IR     |     AST      |          Netlist |
+| Item   | TypeChecker  |       ERC        |
+| :----- | :----------: | :--------------: |
+| Input  |     Code     |      SExpr       |
+| IR     |     AST      |     Netlist      |
 | Output | Syntax Error | Electrical Error |
