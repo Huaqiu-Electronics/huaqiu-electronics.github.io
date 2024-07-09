@@ -185,11 +185,6 @@ class ERC_TESTER
 {
 public:
 
-    ERC_TESTER( SCHEMATIC* aSchematic ) :
-            m_schematic( aSchematic )
-    {
-    }
-
     /**
      * Inside a given sheet, one cannot have sheets with duplicate names (file
      * names can be duplicated).
@@ -552,3 +547,11 @@ export class Checker extends ParseTreeWalker {
   }
 }
 ```
+
+### Comparison
+
+| Item   | TypeChecker  |              ERC |
+| :----- | :----------: | ---------------: |
+| Input  |     Code     |            SExpr |
+| IR     |     AST      |         Net List |
+| Output | Syntax Error | Electrical Error |
