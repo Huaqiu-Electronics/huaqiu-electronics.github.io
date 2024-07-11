@@ -14,7 +14,7 @@
 
     <v-card-actions>
       <v-btn color="orange" icon="mdi-play" @click="toggleVideo"></v-btn>
-      <a href="https://github.com/Huaqiu-Electronics" target="_blank">
+      <a href="https://www.eda.cn/" target="_blank">
         <v-btn color="orange" icon="mdi-link"></v-btn>
       </a>
     </v-card-actions>

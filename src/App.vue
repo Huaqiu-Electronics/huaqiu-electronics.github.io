@@ -15,9 +15,8 @@
         </v-col>
         <v-col cols="2">
           <v-sheet class="pa-0 ma-2 bg-grey-lighten-5">
-            <!-- <RecentBlogs /> -->
           </v-sheet>
-        </v-col>>
+        </v-col>
       </v-row>
       <CompanyFooter />
     </v-main>
@@ -34,5 +33,7 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 </style>
