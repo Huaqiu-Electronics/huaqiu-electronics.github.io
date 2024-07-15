@@ -33,7 +33,7 @@ tags:
 
 | 名称                                                     | 备注               | 示例                                                        |       硬件加速        | Github 星数 |
 | :------------------------------------------------------- | :----------------- | ----------------------------------------------------------- | :-------------------: | :---------: |
-| [pixijs](https://github.com/pixijs/pixijs)               | 2D WebGL 库        | [示例](https://konvajs.org/docs/sandbox/Canvas_Editor.html) |     WebGL,WebGPU      |    43.1k    |
+| [pixijs](https://github.com/pixijs/pixijs)               | 2D WebGL 库        | [示例](https://pixijs.com/8.x/playground)                   |     WebGL,WebGPU      |    43.1k    |
 | [tldraw](https://github.com/tldraw/tldraw)               | 适用于 React       | [示例](https://tldraw.dev/)                                 |           -           |    34.4k    |
 | [Konva.js](https://github.com/konvajs/konva)             | 适用于 React、Vue  | [示例](https://konvajs.org/docs/sandbox/Canvas_Editor.html) |           -           |    11.1k    |
 | [Three.js](https://github.com/mrdoob/three.js)           | JavaScript 3D 库   | [示例](https://threejs.org/examples)                        |     WebGL,WebGPU      |    101k     |
