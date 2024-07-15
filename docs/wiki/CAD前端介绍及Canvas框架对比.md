@@ -83,15 +83,9 @@ https://news.ycombinator.com/item?id=34339703
 | [JSCAD](https://www.vjmap.com/)    | 使用 JavaScript 代码创建参数化的 2D 和 3D 设计，特别适用于 3D 打印应用。 |               [openjscad](https://openjscad.xyz/)                |
 | [唯杰地图](https://www.vjmap.com/) | CAD 图 WebGIS 可视化显示开发提供的一站式解决方案                         | [唯杰地图云端图纸管理平台](https://vjmap.com/demo/#/gallery/map) |
 
-### 总结
+## CPU 渲染和 GPU 渲染对比
 
-| 维度     | 对比                                                                 |
-| :------- | :------------------------------------------------------------------- |
-| 开发效率 | Konva.js > Three.js > Babylon.js > excalidraw > node-canvas          |
-| 性能     | pixijs > Konva.js > Three.js > Babylon.js > excalidraw > node-canvas |
-| 文档     | pixijs > Konva.js > Three.js > Babylon.js > excalidraw > node-canvas |
-
-## Cairo 介绍
+### Cairo (CPU 渲染)
 
 [Cairo](https://cairographics.org/) 是一个开源图形库，为软件开发人员提供基于矢量图形、独立于设备的 API，它提供了跨多个不同后端的二维绘图的基元。
 
@@ -106,13 +100,36 @@ https://news.ycombinator.com/item?id=34339703
 - Inkscape：免费开源的矢量图形编辑器。
 - SolveSpace：免费开源的基于约束的参数化计算机辅助设计（CAD）软件
 
-## WebGL 和 WebGPU 介绍
+### WebGL (GPU 渲染)
 
-> [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)（Web Graphics Library）是一种 JavaScript API，通过 HTML 的 canvas 元素用于在任何兼容的 Web 浏览器中渲染高性能的交互式 3D 和 2D 图形，而无需使用插件。WebGL 通过引入符合 OpenGL ES 2.0 的 API 以利用用户设备提供的硬件图形加速。
-> [WebGPU](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API)API 使 Web 开发者能够利用底层系统的 GPU（图形处理单元）进行高性能计算和绘制复杂图像，这些图像可以在浏览器中渲染。WebGPU 是 WebGL 的继任者，提供了更好的现代 GPU 兼容性、支持通用目的 GPU 计算、更快的操作以及访问更高级的 GPU 功能。
+> [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)（Web Graphics Library）是一种 JavaScript API，通过 HTML 的 canvas 元素用于在任何兼容的 Web 浏览器中渲染高性能的交互式 3D 和 2D 图形，而无需使用插件。WebGL 通过引入符合 OpenGL ES 2.0 的 API 以利用用户设备提供的硬件图形加速。<br> [WebGPU 是 WebGL 的继任者](https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API) ，提供了更好的现代 GPU 兼容性、支持通用目的 GPU 计算、更快的操作以及访问更高级的 GPU 功能。
 
-## Reference
+### 二者优势和劣势
 
-https://news.ycombinator.com/item?id=24304484
-https://news.ycombinator.com/item?id=34339703
-https://stackoverflow.com/questions/57948360/pixi-js-vs-konva-js-vs-d3-js
+| 特性 | CPU 渲染                                           | GPU 渲染                                   |
+| ---- | -------------------------------------------------- | ------------------------------------------ |
+| 优势 | - 简单易用<br>- 广泛支持<br>- 快速开发             | - 高性能<br>- 3D 支持<br>- 可扩展性强      |
+| 劣势 | - 性能有限<br>- 缺乏 3D 支持<br>- 无法充分利用 GPU | - 复杂度高<br>- 兼容性问题<br>- 开发成本高 |
+
+## 前端框架对比
+
+![前端框架趋势](/assets/React-Angular-Vue.webp)
+
+| 特性       | React                                                                                                                             | Angular                                                                                                                                                                                                         | Vue                                                                                                                                                   |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **开发者** | Facebook                                                                                                                          | Google                                                                                                                                                                                                          | 尤雨溪（Evan You）                                                                                                                                    |
+| **简介**   | 用于构建用户界面的 JavaScript 库，专注于视图层                                                                                    | 完整的前端框架，提供一整套解决方案                                                                                                                                                                              | 渐进式 JavaScript 框架，适合构建用户界面                                                                                                              |
+| **优点**   | - 组件化开发，代码复用性强<br>- 高效的虚拟 DOM，提升性能<br>- 强大的社区支持和生态系统<br>- 支持 React Native，用于开发移动端应用 | - 完整的框架，提供了路由、表单处理、HTTP 客户端等功能<br>- 强类型支持（TypeScript），提高代码可维护性和可读性<br>- 依赖注入（Dependency Injection），提升代码的模块化和测试性<br>- 双向数据绑定，简化数据的同步 | - 易于上手，文档详尽<br>- 轻量级，适合小型项目和单页应用<br>- 双向数据绑定和虚拟 DOM 提升开发体验和性能<br>- 渐进式框架，可以根据需求逐步引入更多功能 |
+| **缺点**   | - 学习曲线较陡峭，需要学习 JSX 语法<br>- 只是一个视图层解决方案，需要搭配其他库进行状态管理和路由处理                             | - 学习曲线陡峭，概念和术语较多<br>- 框架较重，可能不适合小型项目                                                                                                                                                | - 社区规模和生态系统相对较小<br>- 对于大型项目，可能需要更多的配置和管理工具                                                                          |
+
+## 总结
+
+| 名称        | 开发效率 | 性能 | 流行程度 |     硬件加速支持      | 前端框架限定 |
+| ----------- | -------- | ---- | -------- | :-------------------: | :----------: |
+| PixiJS      | 中       | 高   | 43.1k    |     WebGL, WebGPU     |      -       |
+| tldraw      | 高       | 中   | 34.4k    |           -           |  React 限定  |
+| Konva.js    | 高       | 中   | 11.1k    |           -           |      -       |
+| Three.js    | 中       | 高   | 101k     |     WebGL, WebGPU     |      -       |
+| Babylon.js  | 中       | 高   | 22.8k    |     WebGL, WebGPU     |      -       |
+| Excalidraw  | 高       | 中   | 77.3k    |           -           |      -       |
+| Node-canvas | 中       | 中   | 10k      | X Rendering Extension |      -       |
