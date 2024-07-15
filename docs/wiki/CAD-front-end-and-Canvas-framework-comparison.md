@@ -31,8 +31,6 @@ tags:
 
 ## Canvas 框架对比
 
-https://news.ycombinator.com/item?id=34339703
-
 | 名称                                                     | 备注               | 示例                                                        |       硬件加速        | Github 星数 |
 | :------------------------------------------------------- | :----------------- | ----------------------------------------------------------- | :-------------------: | :---------: |
 | [pixijs](https://github.com/pixijs/pixijs)               | 2D WebGL 库        | [示例](https://konvajs.org/docs/sandbox/Canvas_Editor.html) |     WebGL,WebGPU      |    43.1k    |
