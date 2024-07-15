@@ -53,7 +53,7 @@ export default defineConfig({
     socialLinks: [
       {
         icon: "github",
-        link: "https://github.com/Huaqiu-Electronics/kicad-huaqiu-homepage",
+        link: "https://github.com/Huaqiu-Electronics/huaqiu-electronics.github.io",
       },
     ],
   },
