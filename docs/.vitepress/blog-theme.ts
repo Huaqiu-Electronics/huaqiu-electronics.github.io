@@ -44,7 +44,7 @@ const blogTheme = getThemeConfig({
     },
     {
       nickname: "华秋",
-      des: "全球领先的产业数字化智造平台",
+      des: "全球领先的智造平台",
       avatar: "/docs/huaqiu-H.svg",
       url: "https://www.huaqiu.com",
     },
