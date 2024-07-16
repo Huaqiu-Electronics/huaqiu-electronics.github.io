@@ -54,7 +54,7 @@ const blogTheme = getThemeConfig({
       nickname: "芯灵",
       des: "电子元件的百科全书",
       avatar: "/huaqiu.png",
-      url: "https://eda.cn",
+      url: "https://www.eda.cn",
     },
     {
       nickname: "华秋",
