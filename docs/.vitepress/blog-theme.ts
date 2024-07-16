@@ -53,13 +53,13 @@ const blogTheme = getThemeConfig({
     {
       nickname: "芯灵",
       des: "电子元件的百科全书",
-      avatar: "/huaqiu.png",
+      avatar: "/huaqiu-H.svg",
       url: "https://eda.cn",
     },
     {
       nickname: "华秋",
       des: "全球领先的产业数字化智造平台",
-      avatar: "/huaqiu.png",
+      avatar: "/huaqiu-H.svg",
       url: "https://www.huaqiu.com",
     },
   ],
