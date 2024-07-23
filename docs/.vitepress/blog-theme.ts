@@ -1,20 +1,6 @@
 // 主题独有配置
 import { getThemeConfig } from "@sugarat/theme/node";
 
-// 开启RSS支持（RSS配置）
-// import type { Theme } from '@sugarat/theme'
-
-// const baseUrl = 'https://sugarat.top'
-// const RSS: Theme.RSSOptions = {
-//   title: 'KiCad华秋',
-//   baseUrl,
-//   copyright: 'Copyright (c) 2018-present, KiCad华秋',
-//   description: '你的指尖,拥有改变世界的力量（大前端相关技术分享）',
-//   language: 'zh-cn',
-//   image: 'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
-//   favicon: 'https://sugarat.top/favicon.ico',
-// }
-
 // 所有配置项，详见文档: https://theme.sugarat.top/
 const blogTheme = getThemeConfig({
   // 开启RSS支持
@@ -53,51 +39,16 @@ const blogTheme = getThemeConfig({
     {
       nickname: "芯灵",
       des: "电子元件的百科全书",
-      avatar: "/huaqiu.png",
+      avatar: "/docs/huaqiu-H.svg",
       url: "https://www.eda.cn",
     },
     {
       nickname: "华秋",
-      des: "全球领先的产业数字化智造平台",
-      avatar: "/huaqiu.png",
+      des: "全球领先的智造平台",
+      avatar: "/docs/huaqiu-H.svg",
       url: "https://www.huaqiu.com",
     },
   ],
-
-  // 公告
-  // popover: {
-  //   title: "公告",
-  //   body: [
-  //     { type: "text", content: "👇公众号👇---👇 微信 👇" },
-  //     {
-  //       type: "image",
-  //       src: "https://img.cdn.sugarat.top/mdImg/MTYxNTAxODc2NTIxMA==615018765210~fmt.webp",
-  //     },
-  //     {
-  //       type: "text",
-  //       content: "欢迎大家加群&私信交流",
-  //     },
-  //     {
-  //       type: "text",
-  //       content: "文章首/文尾有群二维码",
-  //       style: "padding-top:0",
-  //     },
-  //     {
-  //       type: "button",
-  //       content: "作者博客",
-  //       link: "https://sugarat.top",
-  //     },
-  //     {
-  //       type: "button",
-  //       content: "加群交流",
-  //       props: {
-  //         type: "success",
-  //       },
-  //       link: "https://theme.sugarat.top/group.html",
-  //     },
-  //   ],
-  //   duration: 0,
-  // },
 });
 
 export { blogTheme };
