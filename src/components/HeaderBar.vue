@@ -6,12 +6,11 @@
     <nav>
       <ul>
         <li><a href="/docs/index.html" target="_blank">博客</a></li>
-        <li><a @click="showDialog = true">发现</a></li>
-        <li><a @click="showDialog = true">社区</a></li>
-        <li><a @click="showDialog = true">帮助</a></li>
-        <li><a @click="showDialog = true">贡献</a></li>
-        <li><a @click="showDialog = true">关于</a></li>
-        <li><a @click="showDialog = true">下载</a></li>
+        <li><a href="www.eda.cn/ecadViewer/" target="_blank">KiCad 查看器</a></li>
+        <li><a href="www.eda.cn/" target="_blank">器件搜索</a></li>
+        <li><a href="https://www.eda.cn/bom/" target="_blank">BOM匹配</a></li>
+        <li><a href="https://www.eda.cn/aiChat/" target="_blank">芯灵助手</a></li>
+        <li><a @click="showDialog = true">软件下载</a></li>
       </ul>
     </nav>
   </header>
