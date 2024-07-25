@@ -53,9 +53,70 @@ DFM 插件可以帮助您在 KiCad 的 PCB 中一键检查制造工艺相关的�
 ![Mirror Plugin](/assets/plugin.png)
 
 ## 安装方式
-您可以通过以下链接下载 Windows 安装包：
+您可以通过以下链接下载 Windows 安装包：https://dfm.elecfans.com/uploads/software/kicad-huaqiu-8.0.3.1-x86_64.exe
 
 如您使用的是 Linux 系统，需要使用 flatpak 进行安装。请参照以下安装方法：
+### 1，安装 flatpak
+
+`sudo apt install flatpak`
+
+### 2，将域名映射为特定的 IP 地址
+
+`sudo vim /etc/hosts`
+
+用 vim 去 etc/host 中，加上这行：
+`175.6.14.183 kicad.huaqiu.com`
+
+
+测试是否连接成功： 
+`ping kicad.huaqiu.com`
+
+### 3，添加远程kicad仓库
+
+`flatpak remote-add --user repo https://kicad.huaqiu.com/repo`
+
+查看是否添加成功：
+`flatpak remote-ls repo`
+如果报错GPG verification,执行步骤 4 ，否则跳过
+
+### 4，忽略包没签名认证,用 nano 编辑器修改配置
+
+`nano ~/.local/share/flatpak/repo/config`
+
+在 nano 中修改: `gpg-verify=false` 
+
+`flatpak remote-modify --no-gpg-verify repo`
+
+查看是否添加成功：
+`flatpak remote-ls repo`
+
+### 5，安装kicad
+
+`flatpak install repo org.kicad.KiCad`
+
+如果报错缺少依赖，进行下一步“6”。
+
+### 6，缺少 SDK 依赖，用国内 flathub 镜像仓库，先添加远程仓库，然后安装缺少的依赖：
+
+`sudo flatpak remote-modify flathub --url=https://mirror.sjtu.edu.cn/flathub`
+
+如果缺少org.freedesktop.Sdk/x86_64/23.08：
+`flatpak install flathub org.freedesktop.Sdk/x86_64/23.08`
+
+如果缺少org.freedesktop.Sdk//23.08：
+`flatpak install flathub org.freedesktop.Sdk//23.08`
+
+
+### 附：
+1，vim使用
+
+`sudo vim /etc/hosts`打开编辑器之后，按 i 编辑，
+保存退出按 shift 冒号 wq 。
+
+2，nano使用
+
+`nano ~/.local/share/flatpak/repo/config`nano编辑器进入修改完后，
+按 Ctrl + O 保存文件，然后按 Ctrl + X 退出编辑器
 
 ## 关于华秋电子
 华秋专注于可靠的多层 PCB 制造和组装，与 KiCad 一样，我们的目标是帮助工程师构建未来的电子产品。 华秋 PCB 正在与 KiCad 合作提供智能工具来简化从设计到物理产品的流程。华秋拥有 3 家主要从事原型设计、批量生产和 PCB 组装的工厂，并拥有超过 15 年的工程专业知识。我们致力于打造全球领先的产业数字化智造平台，以 PCB EDA 设计工具为核心，将器件选型、DFM检查、实时询价/下单等核心流程融为一体，提高设计效率、确保设计可靠性。
