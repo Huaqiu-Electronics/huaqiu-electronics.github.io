@@ -1,5 +1,5 @@
 <template>
-  <div class="download-page">
+  <div class="download-page ">
     <header class="page-header">
       <h1>下载 KiCad 华秋发行版</h1>
     </header>
@@ -59,6 +59,7 @@ export default {
         name: "Linux",
         logo: linuxLogo,
         downloadUrl: null,
+        instructionUrl: "/download/linux",
       },
     ];
 
@@ -116,10 +117,8 @@ export default {
       if (platform === "macOS") {
         alert("macOS 版本仍在开发中。");
       } else if (platform === "Linux") {
-        alert(`Linux 安装说明：
-        1. 安装 Flatpak。
-        2. 映射域名并配置仓库。
-        3. 修改 GPG 设置并添加依赖项。`);
+        // 跳转到 Linux 下载页面
+        window.location.href = "/download/linux";
       }
     };
 

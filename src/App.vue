@@ -19,9 +19,4 @@ export default {
 
 
 
-<style scoped>
-content-begin {
-  margin-top: 7vh;
-  padding-bottom: 7vh;
-}
-</style>
+<style scoped></style>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import DownloadPage from '@/pages/DownloadPage.vue';
 import HomePage from '@/pages/HomePage.vue';
+import LinuxDownloadPage from '@/pages/LinuxDownloadPage.vue';
 
 const routes = [
   {
@@ -12,6 +13,10 @@ const routes = [
     path: '/download',
     name: 'Download',
     component: DownloadPage,
+  },
+  {
+    path: "/download/linux",
+    component: LinuxDownloadPage,
   },
 ];
 
