@@ -16,6 +16,7 @@ const routes = [
   },
   {
     path: "/download/linux",
+    name: 'LinuxDownloadPage',
     component: LinuxDownloadPage,
   },
 ];

@@ -40,10 +40,12 @@ import { ref } from "vue";
 import windowsLogo from "@/assets/Windows.svg";
 import macosLogo from "@/assets/macos.svg";
 import linuxLogo from "@/assets/linux.svg";
+import { useRouter } from "vue-router";
 
 export default {
   name: "DownloadPage",
   setup() {
+    const router = useRouter();
     const platforms = [
       {
         name: "Windows",
@@ -118,7 +120,8 @@ export default {
         alert("macOS 版本仍在开发中。");
       } else if (platform === "Linux") {
         // 跳转到 Linux 下载页面
-        window.location.href = "/download/linux";
+        console.log("Navigating to Linux download page");
+        router.push("/download/linux");
       }
     };
 
