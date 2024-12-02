@@ -1,39 +1,27 @@
 <template>
   <v-app>
-    <v-main class="bg-grey-lighten-5">
+    <v-main class="d-flex flex-column min-height-full bg-grey-lighten-5">
       <HeaderBar />
-      <HeaderBackground />
-      <v-row no-gutters>
-        <v-col cols="2">
-          <v-sheet class="pa-1 ma-2 bg-grey-lighten-5">
-          </v-sheet>
-        </v-col>
-        <v-col>
-          <v-sheet class="pa-0 ma-2 bg-grey-lighten-5">
-            <FeatureFunctions />
-          </v-sheet>
-        </v-col>
-        <v-col cols="2">
-          <v-sheet class="pa-0 ma-2 bg-grey-lighten-5">
-          </v-sheet>
-        </v-col>
-      </v-row>
-      <CompanyFooter />
+      <router-view />
+
     </v-main>
   </v-app>
 </template>
 
-<script setup lang="ts">
-//
+<script>
+export default {
+  data: () => ({
+    icons: ['mdi-wechat', 'mdi-twitter', 'mdi-youtube', 'mdi-github'],
+  }),
+};
 </script>
 
+
+
+
 <style scoped>
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+content-begin {
+  margin-top: 7vh;
+  padding-bottom: 7vh;
 }
 </style>

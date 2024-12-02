@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo-container">
-      <a href="https://www.huaqiu.com/"><img src="../assets/kicad_x_huaqiu.png" alt="Logo" class="logo"></a>
+      <a href="/"><img src="../assets/kicad_x_huaqiu.png" alt="Logo" class="logo"></a>
     </div>
     <nav>
       <ul>
@@ -10,31 +10,11 @@
         <li><a href="https://www.eda.cn/" target="_blank">器件搜索</a></li>
         <li><a href="https://www.eda.cn/bom/" target="_blank">BOM匹配</a></li>
         <li><a href="https://www.eda.cn/aiChat/" target="_blank">芯灵助手</a></li>
-        <li><a @click="showDialog = true">软件下载</a></li>
+        <li><router-link to="/download">软件下载</router-link></li>
       </ul>
     </nav>
   </header>
-
-  <div :class="{ 'dim-page': showDialog }">
-    <v-dialog v-model="showDialog" max-width="500">
-      <v-card class="styled-card rounded-card">
-        <v-card-text class="dialog-content">
-          <img src="../assets/constructing.png" alt="Under Construction" class="construction-image">
-        </v-card-text>
-      </v-card>
-    </v-dialog>
-  </div>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      showDialog: false,
-    };
-  },
-};
-</script>
 
 <style scoped>
 /* Reset some default styles */
@@ -134,18 +114,17 @@ section p {
   border-radius: 16px;
 }
 
-.dialog-content {
-  padding: 0;
+header nav ul li a,
+header nav ul li router-link {
+  color: #000000;
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+  cursor: pointer;
 }
 
-.dim-page::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 999;
+header nav ul li a:hover,
+header nav ul li router-link:hover {
+  color: #585757;
 }
 </style>

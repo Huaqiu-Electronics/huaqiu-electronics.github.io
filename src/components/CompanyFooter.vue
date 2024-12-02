@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="bg-grey-darken-3 text-center d-flex flex-column">
+  <v-footer class="bg-grey-darken-3 text-center d-flex flex-column maybe-higher">
     <div>
       <v-btn v-for="icon in icons" :key="icon" :icon="icon" class="mx-4" variant="text"></v-btn>
     </div>
@@ -26,8 +26,4 @@ export default {
   }),
 }
 </script>
-<style scoped>
-.v-footer {
-  margin-top: -8vh;
-}
-</style>
+<style scoped></style>

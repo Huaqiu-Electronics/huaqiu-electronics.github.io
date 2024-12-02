@@ -1,0 +1,227 @@
+<template>
+  <div class="download-page">
+    <header class="page-header">
+      <h1>下载 KiCad 华秋发行版</h1>
+    </header>
+
+    <section class="download-section">
+      <h2>选择您的操作系统</h2>
+      <div class="platforms">
+        <div v-for="platform in platforms" :key="platform.name" class="platform-card">
+          <img :src="platform.logo" :alt="platform.name" class="platform-logo" />
+          <h3>{{ platform.name }}</h3>
+          <a v-if="platform.downloadUrl" :href="platform.downloadUrl" class="download-button">下载</a>
+          <button v-else @click="handlePlatformClick(platform.name)" class="download-button">
+            详情
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2>常见问题</h2>
+      <div class="accordion-container">
+        <div v-for="item in faq" :key="item.title" class="accordion">
+          <div class="accordion-header" @click="toggleAccordion(item.title)">
+            {{ item.title }}
+            <span>{{ item.open ? '-' : '+' }}</span>
+          </div>
+          <div v-if="item.open" class="accordion-body">
+            <p v-html="item.content"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script>
+import { ref } from "vue";
+import windowsLogo from "@/assets/Windows.svg";
+import macosLogo from "@/assets/macos.svg";
+import linuxLogo from "@/assets/linux.svg";
+
+export default {
+  name: "DownloadPage",
+  setup() {
+    const platforms = [
+      {
+        name: "Windows",
+        logo: windowsLogo,
+        downloadUrl: "https://www.eda.cn/data/kicad-release/kicad-huaqiu-8.0.6-x86_64.exe.zip",
+      },
+      {
+        name: "macOS",
+        logo: macosLogo,
+        downloadUrl: null,
+      },
+      {
+        name: "Linux",
+        logo: linuxLogo,
+        downloadUrl: null,
+      },
+    ];
+
+    const faq = ref([
+      {
+        title: "华秋版是开源的吗？",
+        content: `是的，华秋版完全开源，遵循 GPL 3.0 许可。源代码可在 GitLab 上获取，预装的插件托管在 GitHub 上，确保透明性与协作性。`,
+        open: false,
+      },
+      {
+        title: "KiCad 华秋发行版的源代码在哪里？",
+        content: `源代码可以在 <a href="https://gitlab.com/kicad-hq/kicad" target="_blank">GitLab</a> 上获取。
+                  您可以通过 <a href="https://gitlab.com/kicad-hq/kicad/-/issues" target="_blank">GitLab Issues</a> 提交问题。`,
+        open: false,
+      },
+      {
+        title: "什么是 KiCad 华秋版？",
+        content: `华秋版是为中国用户量身定制的 KiCad 发行版。它解决了特定的本地需求，如与供应链的集成，并添加了一些尚未合并到主分支的功能。`,
+        open: false,
+      },
+      {
+        title: "为什么要创建华秋版？",
+        content: `华秋识别出了一些对中国用户至关重要但难以集成到主分支的功能。这些功能包括处理微软拼音输入法问题以及云组件库的集成。`,
+        open: false,
+      },
+      {
+        title: "华秋版有哪些关键新功能？",
+        content: `<ul>
+                  <li>修复 Windows 10 上微软拼音输入法卡死问题。</li>
+                  <li>基于 Gitee 托管的插件镜像服务，稳定下载。</li>
+                  <li>支持 Windows 的暗黑模式。</li>
+                  <li>集成云端组件库，方便选择元件。</li>
+                  <li>预装 DFM 插件用于高效的错误检查，以及 HQPCB 插件实现实时报价和下单。</li>
+                </ul>`,
+        open: false,
+      },
+      {
+        title: "插件镜像服务是如何工作的？",
+        content: `该服务每两天将所有官方 KiCad 插件链接与 Gitee 仓库同步。用户可以快速下载插件，不受网络不稳定的影响。华秋版已预配置镜像 URL，方便使用。`,
+        open: false,
+      },
+    ]);
+
+    const toggleAccordion = (title) => {
+      faq.value.forEach((item) => {
+        if (item.title === title) {
+          item.open = !item.open;
+        } else {
+          item.open = false;
+        }
+      });
+    };
+
+    const handlePlatformClick = (platform) => {
+      if (platform === "macOS") {
+        alert("macOS 版本仍在开发中。");
+      } else if (platform === "Linux") {
+        alert(`Linux 安装说明：
+        1. 安装 Flatpak。
+        2. 映射域名并配置仓库。
+        3. 修改 GPG 设置并添加依赖项。`);
+      }
+    };
+
+    return {
+      platforms,
+      faq,
+      toggleAccordion,
+      handlePlatformClick,
+    };
+  },
+};
+</script>
+
+<style scoped>
+.download-page {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  padding: 20px;
+  margin-top: 7vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: #005fa9;
+}
+
+.download-section {
+  text-align: center;
+}
+
+.platforms {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.platform-card {
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  max-width: 150px;
+}
+
+.platform-logo {
+  max-width: 100px;
+  margin-bottom: 10px;
+}
+
+.download-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #005fa9;
+  border-radius: 5px;
+  text-decoration: none;
+  min-width: 120px;
+}
+
+.download-button:hover {
+  background-color: #00417c;
+}
+
+.faq-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.accordion-container {
+  margin: 20px auto;
+  max-width: 600px;
+  /* Optional: Limit width for better alignment */
+}
+
+.accordion {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: left;
+  /* Ensure content remains left-aligned */
+}
+
+.accordion-header {
+  background-color: #f7f7f7;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-body {
+  padding: 15px;
+  background-color: #fff;
+}
+</style>

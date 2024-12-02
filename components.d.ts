@@ -17,6 +17,8 @@ declare module 'vue' {
     LibraryCard: typeof import('./src/components/LibraryCard.vue')['default']
     PluginCard: typeof import('./src/components/PluginCard.vue')['default']
     RecentBlogs: typeof import('./src/components/RecentBlogs.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     VideoPlayerDialog: typeof import('./src/components/VideoPlayerDialog.vue')['default']
   }
 }

@@ -17,6 +17,7 @@
     "element-plus": "^2.7.2",
     "roboto-fontface": "*",
     "vue": "3.4.26",
+    "vue-router": "^4.5.0",
     "vuetify": "^3.5.8"
   },
   "directories": {
