@@ -13,6 +13,7 @@ sticky: 1
 
 ## 华秋发行版的定位
 华秋发行版的定位是为中国用户服务，解决一些因某种原因无法合并到主干但对中国用户来说非常重要的问题；同时通过预装一些插件，打通供应链、设计到制造的壁垒。
+<iframe src="https://player.bilibili.com/player.html?bvid=BV143BrYcEAa" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500"> </iframe>
 
 ## 为什么需要华秋发行版？
 华秋自 2023 年起成为 KiCad 白金赞助商，同时招募了专职软件工程师为 KiCad 代码做贡献。除了日常的 Bug 修复外，对 KiCad 9 的主要功能的贡献包括：
