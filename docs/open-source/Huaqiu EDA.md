@@ -4,9 +4,6 @@ tag:
   - KiCad
   - 技术
   - 开源
-
-top: 1
-sticky: 1
 ---
 
 # KiCad 华秋发行版概述

@@ -1,15 +1,15 @@
 ---
-description: The KiCad project is proud to announce the version 8.0.3 bug fix release. The 8.0.3 stable version contains critical bug fixes and other minor improvements since the previous release.
-title: KiCad HQ 介绍
+description: 华秋正式发布了第一个KiCad发行版
+title: KiCad 华秋发行版介绍
 readingTime: false
 tag:
   - 宣发
   - KiCad
-top: 2
-sticky: 2
+top: 1
+sticky: 1
 ---
 
-# KiCon演讲回顾（二）：华秋 KiCad 发行版
+# 华秋 KiCad 发行版介绍
 
 ## 华秋发行版的定位
 华秋发行版的定位是为中国用户服务，解决一些因某种原因无法合并到主干但对中国用户来说非常重要的问题；同时通过预装一些插件，打通供应链、设计到制造的壁垒。
@@ -73,4 +73,3 @@ Linux 的话需要使用 Flatpak 下载，暂不支持 MacOS。
 华秋的 KiCad 发行版是一种有意思的尝试，它并不是简单的 Fork，而是在 KiCad 主版本的基础上提供了一种补充的选择，让特定的用户可以使用到一些更高效的解决方案。有兴趣的小伙伴可以自行尝试，有问题在发行版的仓库中直接提问，当然也可以联系华秋的工程师，进行进一步的沟通。
 ```
 
-请注意，由于网页中的图片和视频无法直接转换为Markdown格式，我已经将图片和视频的链接以文本形式保留。您可以根据需要将这些链接替换为实际的图片和视频资源。
