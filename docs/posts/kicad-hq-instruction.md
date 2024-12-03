@@ -22,6 +22,12 @@ sticky: 1
 - 层次原理图引脚/标签同步工具：方便用户同步子原理图中的 Port 与上层 Sheet Pin 引脚
 - ODB++输出：之前版本的 KiCad 只支持输出 Gerber，但 ODB++在很多制造或者仿真的场景中需要用到。
 
+在贡献代码的过程中，发现除了这些通用功能之外，有些对中国用户来讲非常重要的功能但因为各种原因可能无法合并到主干（比如微软拼音输入法导致卡死的问题）；某些新功能因为 KiCad 本身的限制也无法短期内实现（比如原理图中支持插件、元器件的概念等）；当然也希望通过发行版，预装一些插件，方便用户打通供应链、设计和制造（比如DFM插件，询价和一键下单插件）。
+
+通过和 KiCad 社区的核心开发者充分交流沟通后，萌生了制作华秋发行版的念头。发行版完全遵循 GPL 3.0 协议，且跟随 KiCad 最新的分支同步更新。原则是通用功能还是贡献给 KiCad 主干，主干无法合并的功能才添加到发行版中，一旦主干可以支持，即刻合并到主干。
+
+因此发行版完全兼容 KiCad 的所有原理图、PCB文件格式，功能上也只是新增而不会缺失主干中的任何功能。
+
 ## 发行版有哪些新功能？
 ### 微软拼音输入法导致 KiCad 卡死
 这个问题仅出现在 Win 10 中，Linux, MacOS, Win11 不受影响。KiCad 中文社群中大量用户汇报了此问题。由于和 wxWidget 相关，暂时没有办法修复。但禁用微软拼音输入法可以作为一个妥协的方案：
@@ -84,7 +90,7 @@ Linux 和 Mac 的用户可能体会不到这个痛苦，但 80% 以上的中国�
 
 ## 源码与下载
 发行版遵循 GPL 协议，可以在以下链接查看源码：
-[https:![pcbquote](/assets/pcbquote.png)//gitlab.com/kicad-hq/kicad](https://gitlab.com/kicad-hq/kicad/-/tree/release/8.0)
+[https://gitlab.com/kicad-hq/kicad](https://gitlab.com/kicad-hq/kicad/-/tree/release/8.0)
 
 所有插件的源码在这里：
 [https://github.com/Huaqiu-Electronics/kicad-hqdfm-plugin](https://github.com/Huaqiu-Electronics/kicad-hqdfm-plugin)
@@ -94,5 +100,5 @@ Linux 和 Mac 的用户可能体会不到这个痛苦，但 80% 以上的中国�
 
 ## 结束语
 华秋的 KiCad 发行版是一种有意思的尝试，它并不是简单的 Fork，而是在 KiCad 主版本的基础上提供了一种补充的选择，让特定的用户可以使用到一些更高效的解决方案。有兴趣的小伙伴可以自行尝试，有问题在发行版的仓库中直接提问，当然也可以联系华秋的工程师，进行进一步的沟通。
-```
+
 
