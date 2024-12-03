@@ -7,9 +7,9 @@
       <ul>
         <li><a href="/docs/index.html" target="_blank">博客专栏</a></li>
         <li><a href="https://www.eda.cn/ecadViewer/" target="_blank">KiCad 查看器</a></li>
+        <li><a href="https://www.eda.cn/ecadViewer/top100" target="_blank">KiCad设计</a></li>
         <li><a href="https://www.eda.cn/" target="_blank">器件搜索</a></li>
         <li><a href="https://www.eda.cn/bom/" target="_blank">BOM匹配</a></li>
-        <li><a href="https://www.eda.cn/aiChat/" target="_blank">芯灵助手</a></li>
         <li><router-link to="/download">软件下载</router-link></li>
       </ul>
     </nav>
@@ -119,6 +119,7 @@ header nav ul li router-link {
   color: #000000;
   text-decoration: none;
   padding: 1rem;
+  margin-left: 1rem;
   display: block;
   cursor: pointer;
 }
