@@ -27,19 +27,35 @@ sticky: 1
 
 ### 微软拼音输入法导致 KiCad 卡死
 这个问题仅出现在 Win 10 中，Linux, MacOS, Win11 不受影响。KiCad 中文社群中大量用户汇报了此问题。由于和 wxWidget 相关，暂时没有办法修复。但禁用微软拼音输入法可以作为一个妥协的方案：
+![Compatibility](/assets/compatibility.png)
+在发行版中，增加了一个开关。首次运行 KiCad 时，会自动检测操作系统类型，如果是 Win 10，会提示用户是否禁用微软拼音输入法；其他 OS 则不受影响。当然，可以在菜单中随时开启或禁用
+![switch](/assets/switch.png)
 
 ### KiCad 插件镜像
 KiCad 的官方插件库并没有存储所有的插件安装包，而只是提供了各个插件安装包的链接。但由于大部分的安装包都发布在 Github 上，导致国内的用户在插件管理器中安装插件非常不稳定，有时可以装有时又装不了; Gitlab 上的包可以装，Github 上的包经常失败。而 KiCad 的插件生态又比较繁荣，有不少非常好用的插件，这对中国用户来说就非常不友好了。Ethan 是 KiCad 的 Lead Developer，为了解决这个问题，做了一个 KiCad 插件的镜像。思路是是先获取 KiCad 官方库中所有插件的链接，然后通过类似爬虫的方式，将这些安装包到同步到 Gitee 中。目前是每两天和官方库同步一次。
+![gitee](/assets/gitee.png)
 
 用户只需要在插件管理其中添加以下的仓库URL，就可以快速地下载插件，不再受网络的影响：
 
 [https://gitee.com/kicad-mirror/kicad-addons/raw/master/repository.json](https://gitee.com/kicad-mirror/kicad-addons/raw/master/repository.json)
+![plugin](/assets/plugininstall.png)
 
 ### 暗黑模式
 Linux 和 Mac 的用户可能体会不到这个痛苦，但 80% 以上的中国用户仍然使用 Windows，但 wxWidget 的稳定版还不支持 Win 下的暗黑功能。华秋发行版中 cherry pick 了 wxWidget master 分支中的功能，现在 Windows 用户也能体验暗黑模式的快乐了。
+![dark](/assets/dark.png)
+当然，如果未来 wxWidget 的稳定版也支持 Win 的暗黑，这些代码会随时合入到 KiCad 的主干。
 
 ### 元器件与云端元器件库
-华秋创建了一个数据搜索引擎：[www.eda.cn](http://www.eda.cn) 提供高质量的元器件搜索及查询服务：同时将大量元器件关联了原理图符号、封装及3D，可以直接在 KiCad 中调用。
+华秋创建了一个数据搜索引擎：[www.eda.cn](http://www.eda.cn) 提供高质量的元器件搜索及查询服务：
+![power](/assets/power.png)
+同时将大量元器件关联了原理图符号、封装及3D，可以直接在 KiCad 中调用。
+![model](/assets/model.png)
+
+### 在 KiCad 中搜索并摆放云端器件库
+基于 www.eda.cn 中的数据，发行版魔改了 KiCad 中的符号选择器。现在只要能联网，就可以直接在符号选择器中按分类或者参数进行搜索：
+![chooser](/assets/chooser.png)
+其中的元器件不仅包含 MPN、厂商、电气参数等信息，还关联了符号和封装，可以直接摆放到原理图中使用。在云端库中摆放的器件，其中的电气参数也会自动添加到符号中，生成 BOM 更精准。参考视频如下；
+![hqlib](/assets/HQLib.gif)
 
 ### DFM 插件
 华秋发行版中预装了一些插件，其中华秋DFM就是其中之一。现在无需离开 KiCad 的设计环境，就可以直接在 PCBnew 中进行 DFM 检查，插件会自动生成 Gerber 并上传到服务器进行分析，并返回检查结果。用户可以直接跳转到出错的位置进行修改，改完后再次检测即可，省去了不同工具间传递信息的时间浪费。插件的源码在这里：[https://github.com/Huaqiu-Electronics/kicad-hqdfm-plugin](https://github.com/Huaqiu-Electronics/kicad-hqdfm-plugin)
