@@ -15,23 +15,34 @@
   </v-footer>
 
   <!-- WeChat QR Code Dialog -->
-  <v-dialog v-model="showWechatDialog" max-width="400">
-    <v-card>
-      <v-card-title class="text-h6">扫一扫关注我们</v-card-title>
-      <v-card-text>
-        <v-img src="@/assets/wechat-qr-code.jpg" alt="WeChat QR Code" />
-      </v-card-text>
-      <v-card-actions>
-        <v-btn color="primary" @click="showWechatDialog = false">关闭</v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+  <div :class="{ 'dim-page': showDialog }">
+    <v-dialog v-model="showWechatDialog" max-width="400">
+      <v-card class="styled-card rounded-card">
+        <v-card-title class="c-title">扫码关注KiCad公众号</v-card-title>
+        <v-card-text>
+          <v-img src="@/assets/wechat-qr-code.jpg" alt="WeChat QR Code" />
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+  </div>
+
+
+  <div :class="{ 'dim-page': showDialog }">
+    <v-dialog v-model="showDialog" max-width="500">
+      <v-card class="styled-card rounded-card">
+        <v-card-text class="dialog-content">
+          <img src="../assets/constructing.png" alt="Under Construction" class="construction-image">
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 
 <script>
 export default {
   data: () => ({
     showWechatDialog: false, // Controls the WeChat QR code dialog visibility
+    showDialog: false,
     icons: [
       {
         name: 'wechat',
@@ -41,7 +52,6 @@ export default {
       {
         name: 'tiktok',
         svg: `<svg t="1733203994993" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2439" width="24" height="24"><path d="M862.51879883 439.40783691c-69.21386719 0-136.53259278-22.49450684-191.90368653-64.1052246v290.28625488c0 148.23303223-114.20288086 268.28613281-255.10253905 268.28613281S160.41003418 813.82189942 160.41003418 665.58886719c0-148.23303223 114.20288086-268.28613281 255.10253907-268.28613281 14.08996583 0 27.76794434 1.23596192 41.116333 3.54309081v153.75366211c-12.77160645-5.02624512-26.3671875-7.58056641-40.04516602-7.5805664-62.8692627 0-113.87329102 53.55834961-113.87329101 119.72351074 0 66.08276367 51.00402833 119.72351075 113.87329101 119.72351075 62.78686523 0 113.79089356-53.64074708 113.79089356-119.72351075V90.125H672.67504883c0 110.82458497 85.446167 200.63781739 190.83251953 200.63781739v148.56262206l-0.98876953 0.08239747" fill="#ffffff" p-id="2440"></path></svg>`,
-        link: '', // FIXME: Add  kicad-hq
       },
       {
         name: 'bilibili',
@@ -60,7 +70,10 @@ export default {
       if (icon.name === 'wechat') {
         this.showWechatDialog = true;
       } else {
-        window.open(icon.link, '_blank');
+        if (icon.link)
+          window.open(icon.link, '_blank');
+        else
+          this.showDialog = true
       }
     }
   }
@@ -70,5 +83,40 @@ export default {
 <style scoped>
 .v-footer {
   margin-top: -8vh;
+}
+
+.construction-image {
+  width: 100%;
+  height: auto;
+}
+
+.c-title {
+  text-align: center;
+  color: rgb(45, 75, 157);
+  font-size: 24px;
+}
+
+.styled-card {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: white;
+}
+
+.rounded-card {
+  border-radius: 16px;
+}
+
+.dialog-content {
+  padding: 0;
+}
+
+.dim-page::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
 }
 </style>
