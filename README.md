@@ -32,6 +32,15 @@ pnpm docs:dev
 
 ```
 
+### Build all
+
+```bash
+pnpm build:all
+cd dist
+
+python -m http.server
+```
+
 ## Update Docs
 
 Simply put the markdown files in the docs folder. The directory structure under docs is just for the convenience of organization.
@@ -66,3 +75,7 @@ Whether to display the sidebar in the article , default is true.
 5. readingTime
 
 Whether to display the reading time in the article , default is true.
+
+```
+
+```
