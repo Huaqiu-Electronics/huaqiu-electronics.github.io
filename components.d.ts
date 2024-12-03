@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     CompanyFooter: typeof import('./src/components/CompanyFooter.vue')['default']
+    DarkModeCard: typeof import('./src/components/DarkModeCard.vue')['default']
     DFMCard: typeof import('./src/components/DFMCard.vue')['default']
     FabCard: typeof import('./src/components/FabCard.vue')['default']
     FeatureFunctions: typeof import('./src/components/FeatureFunctions.vue')['default']

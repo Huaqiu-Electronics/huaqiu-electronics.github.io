@@ -18,7 +18,7 @@
       </v-col>
       <v-col>
         <v-sheet class="pa-0 ma-2 bg-grey-lighten-5">
-          <PluginCard />
+          <DarkModeCard />
         </v-sheet>
       </v-col>
     </v-row>
