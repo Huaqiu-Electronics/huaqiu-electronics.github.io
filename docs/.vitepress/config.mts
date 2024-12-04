@@ -48,7 +48,7 @@ export default defineConfig({
     // },
     nav: [
       { text: "首页", link: "/" },
-      { text: "关于作者", link: "https://eda.cn" },
+      { text: "关于作者", link: "https://www.eda.cn/" },
     ],
     socialLinks: [
       {
