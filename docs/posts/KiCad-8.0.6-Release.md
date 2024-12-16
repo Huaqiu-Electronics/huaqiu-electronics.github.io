@@ -5,7 +5,7 @@ readingTime: false
 tag:
   - 宣发
   - KiCad
-top: 2
+top: 
 sticky: 
 ---
 
