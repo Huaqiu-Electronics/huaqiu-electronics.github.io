@@ -10,7 +10,7 @@
         <div v-for="platform in platforms" :key="platform.name" class="platform-card">
           <img :src="platform.logo" :alt="platform.name" class="platform-logo" />
           <h3>{{ platform.name }}</h3>
-          <DropDownButton v-if="platform.build" class="download-button" />
+          <a v-if="platform.downloadUrl" :href="platform.downloadUrl" class="download-button">下载</a>
           <button v-else @click="handlePlatformClick(platform.name)" class="download-button">
             详情
           </button>
@@ -18,6 +18,7 @@
       </div>
     </section>
 
+    <VersionHistory :versions="versions" />
 
     <section class="faq-section">
       <h2>常见问题</h2>
@@ -48,13 +49,32 @@ export default {
   setup() {
     const router = useRouter();
 
+    const versions = ref({
+      "8.0.6": {
+        "download": "https://www.eda.cn/data/kicad-release/kicad-huaqiu-8.0.6-x86_64.exe.zip",
+        "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.6-Release.html"
+
+      },
+      "8.0.7": {
+        "download": "https://www.eda.cn/data/kicad-release/kicad-huaqiu-8.0.7-x86_64.exe.zip",
+        "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.7-Release.html"
+      }
+    });
+
+    // Sort versions by semantic versioning and get the latest version
+    const latestVersion = computed(() => {
+      const sortedVersions = Object.keys(versions.value).sort((a, b) => {
+        return b.localeCompare(a, undefined, { numeric: true });
+      });
+      return sortedVersions[0];
+    });
 
     // Platform setup
     const platforms = ref([
       {
         name: "Windows",
         logo: windowsLogo,
-        build : true
+        downloadUrl: versions.value[latestVersion.value]?.download, // Dynamically set latest version URL
       },
       {
         name: "macOS",
@@ -68,6 +88,9 @@ export default {
         instructionUrl: "/download/linux",
       }
     ]);
+
+
+
 
     const faq = ref([
       {
@@ -139,6 +162,7 @@ export default {
 
     return {
       platforms,
+      versions,
       faq,
       toggleAccordion,
       handlePlatformClick,
