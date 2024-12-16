@@ -11,6 +11,7 @@
         <li><a href="https://www.eda.cn/" target="_blank">器件搜索</a></li>
         <li><a href="https://www.eda.cn/bom/" target="_blank">BOM匹配</a></li>
         <li><router-link to="/download">软件下载</router-link></li>
+        <li><a href="https://xiazai.zol.com.cn/" target="_blank">ZOL软件下载</a></li>
       </ul>
     </nav>
   </header>
