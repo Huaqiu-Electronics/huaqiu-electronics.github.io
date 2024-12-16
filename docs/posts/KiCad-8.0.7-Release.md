@@ -20,6 +20,7 @@ sticky: 2
 2. 运行封装向导时无法查看画布的问题
 
 更多关于华秋发行版的介绍可以参考：[KiCad 华秋发行版](https://kicad.eda.cn/docs/posts/kicad-hq-instruction.html)
+KiCad 华兴发行版下载链接：[点击查看](https://kicad.eda.cn/download)
 
 以下为 Official KiCad 更新内容
 ---
