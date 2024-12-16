@@ -13,13 +13,13 @@
         >
       </li>
     </ul>
-    <!-- <a
+    <a
       href="https://kicad.eda.cn/docs/?tag=%E5%AE%A3%E5%8F%91&type="
       target="_blank"
       class="more-link"
     >
       更多版本
-    </a> -->
+    </a>
   </aside>
 </template>
 
