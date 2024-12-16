@@ -38,8 +38,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import VersionHistory from "@/pages/VersionHistory.vue";
+import { ref ,computed } from "vue";
 import windowsLogo from "@/assets/Windows.svg";
 import macosLogo from "@/assets/macos.svg";
 import linuxLogo from "@/assets/linux.svg";
@@ -47,29 +46,8 @@ import { useRouter } from "vue-router";
 
 export default {
   name: "DownloadPage",
-  components: {
-    VersionHistory,
-  },
   setup() {
     const router = useRouter();
-    const platforms = [
-      {
-        name: "Windows",
-        logo: windowsLogo,
-        downloadUrl: "https://www.eda.cn/data/kicad-release/kicad-huaqiu-8.0.6-x86_64.exe.zip",
-      },
-      {
-        name: "macOS",
-        logo: macosLogo,
-        downloadUrl: null,
-      },
-      {
-        name: "Linux",
-        logo: linuxLogo,
-        downloadUrl: null,
-        instructionUrl: "/download/linux",
-      },
-    ];
 
     const versions = ref({
       "8.0.6": {
@@ -82,6 +60,37 @@ export default {
         "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.7-Release.html"
       }
     });
+
+    // Sort versions by semantic versioning and get the latest version
+    const latestVersion = computed(() => {
+      const sortedVersions = Object.keys(versions.value).sort((a, b) => {
+        return b.localeCompare(a, undefined, { numeric: true });
+      });
+      return sortedVersions[0];
+    });
+
+    // Platform setup
+    const platforms = ref([
+      {
+        name: "Windows",
+        logo: windowsLogo,
+        downloadUrl: versions.value[latestVersion.value]?.download, // Dynamically set latest version URL
+      },
+      {
+        name: "macOS",
+        logo: macosLogo,
+        downloadUrl: null,
+      },
+      {
+        name: "Linux",
+        logo: linuxLogo,
+        downloadUrl: null,
+        instructionUrl: "/download/linux",
+      }
+    ]);
+
+
+
 
     const faq = ref([
       {
@@ -102,14 +111,17 @@ export default {
       },
       {
         title: "为什么需要华秋发行版？",
-        content: `华秋自 2023 年起成为 KiCad 白金赞助商，同时招募了专职软件工程师为 KiCad 代码做贡献。除了日常的 Bug 修复外，对 KiCad 9 的主要功能的贡献包括：
+        content: `华秋自 2023 年起成为 KiCad 白金赞助商，同时招募了专职软件工程师为 KiCad 代码做贡献。除了日常的 Bug 修复外，对 KiCad 9 的主要功能的贡献包括:
+
         <ul>
           <li>敷铜管理器：允许用户在一个UI中查看 PCB 中所有的敷铜，并修改铜箔的属性、优先级的信息</li>
           <li>层次原理图引脚/标签同步工具：方便用户同步子原理图中的 Port 与上层 Sheet Pin 引脚</li>
           <li>ODB++输出：支持 ODB++ 输出，方便在制造或仿真场景中使用</li>
         </ul>
-        在贡献代码的过程中，发现除了这些通用功能之外，有些对中国用户来说非常重要的功能可能因各种原因无法合并到主干（如微软拼音输入法问题），或因 KiCad 本身的限制无法短期实现（如原理图插件支持、元器件概念等）。华秋也希望通过发行版预装一些插件，帮助用户打通供应链、设计和制造（如 DFM 插件，询价和一键下单插件）。
-        发行版完全遵循 GPL 3.0 协议，跟随 KiCad 最新分支同步更新，兼容所有 KiCad 原理图、PCB 文件格式，并新增一些功能。`,
+
+<br>在贡献代码的过程中，发现除了这些通用功能之外，有些对中国用户来讲非常重要的功能但因为各种原因可能无法合并到主干（比如微软拼音输入法导致卡死的问题）；某些新功能因为 KiCad 本身的限制也无法短期内实现（比如原理图中支持插件、元器件的概念等）；当然也希望通过发行版，预装一些插件，方便用户打通供应链、设计和制造（比如DFM插件，询价和一键下单插件）。
+<br>通过和 KiCad 社区的核心开发者充分交流沟通后，萌生了制作华秋发行版的念头。发行版完全遵循 GPL 3.0 协议，且跟随 KiCad 最新的分支同步更新。<br>原则是通用功能还是贡献给 KiCad 主干，主干无法合并的功能才添加到发行版中，一旦主干可以支持，即刻合并到主干。
+<br>因此发行版完全兼容 KiCad 的所有原理图、PCB文件格式，功能上也只是新增而不会缺失主干中的任何功能。`,
         open: false,
       },
       {
@@ -129,7 +141,6 @@ export default {
         open: false,
       },
     ]);
-
     const toggleAccordion = (title) => {
       faq.value.forEach((item) => {
         if (item.title === title) {

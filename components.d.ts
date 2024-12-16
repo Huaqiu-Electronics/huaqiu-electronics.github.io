@@ -20,6 +20,7 @@ declare module 'vue' {
     RecentBlogs: typeof import('./src/components/RecentBlogs.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    VersionHistory: typeof import('./src/components/VersionHistory.vue')['default']
     VideoPlayerDialog: typeof import('./src/components/VideoPlayerDialog.vue')['default']
   }
 }
