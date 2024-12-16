@@ -24,6 +24,7 @@ sticky: 2
 KiCad 华秋发行版下载链接：[点击查看](https://kicad.eda.cn/download)
 
 以下为 Official KiCad 更新内容
+
 ---
 
 KiCad 8.0.7 版正式发布。8.0.7 稳定版本包含自上一版本以来的关键错误修复和其他小改进。
@@ -31,6 +32,7 @@ KiCad 8.0.7 版正式发布。8.0.7 稳定版本包含自上一版本以来的�
 自 8.0.6 版本发布以来，所有修复的问题列表可以在 [KiCad 8.0.7 里程碑](https://gitlab.com/groups/kicad/-/milestones/41) 页面中找到。此版本包含了多个关键的错误修复，建议尽快升级。
 
 8.0.7 版本是从 [8.0](https://gitlab.com/kicad/code/kicad/-/commits/8.0/) 分支创建的，并包含了一些从开发分支挑选的更改。
+
 ---
 
 ## 更新日志
