@@ -6,7 +6,7 @@ tag:
   - 宣发
   - KiCad
 top: 2
-sticky: 2
+sticky: 
 ---
 
 # KiCad 8.0.6 发布
