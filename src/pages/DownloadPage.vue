@@ -1,5 +1,5 @@
 <template>
-  <div class="download-page ">
+  <div class="download-page">
     <header class="page-header">
       <h1>下载 KiCad 华秋发行版</h1>
     </header>
@@ -17,6 +17,8 @@
         </div>
       </div>
     </section>
+
+    <VersionHistory :versions="versions" />
 
     <section class="faq-section">
       <h2>常见问题</h2>
@@ -37,6 +39,7 @@
 
 <script>
 import { ref } from "vue";
+import VersionHistory from "@/pages/VersionHistory.vue";
 import windowsLogo from "@/assets/Windows.svg";
 import macosLogo from "@/assets/macos.svg";
 import linuxLogo from "@/assets/linux.svg";
@@ -44,6 +47,9 @@ import { useRouter } from "vue-router";
 
 export default {
   name: "DownloadPage",
+  components: {
+    VersionHistory,
+  },
   setup() {
     const router = useRouter();
     const platforms = [
@@ -64,6 +70,18 @@ export default {
         instructionUrl: "/download/linux",
       },
     ];
+
+    const versions = ref({
+      "8.0.6": {
+        "download": "https://www.eda.cn/data/kicad-release/kicad-huaqiu-8.0.6-x86_64.exe.zip",
+        "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.6-Release.html"
+
+      },
+      "8.0.7": {
+        "download": "https://www.eda.cn/data/kicad-release/kicad-huaqiu-8.0.7-x86_64.exe.zip",
+        "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.7-Release.html"
+      }
+    });
 
     const faq = ref([
       {
@@ -111,6 +129,7 @@ export default {
         open: false,
       },
     ]);
+
     const toggleAccordion = (title) => {
       faq.value.forEach((item) => {
         if (item.title === title) {
@@ -125,7 +144,6 @@ export default {
       if (platform === "macOS") {
         alert("macOS 版本仍在开发中。");
       } else if (platform === "Linux") {
-        // 跳转到 Linux 下载页面
         console.log("Navigating to Linux download page");
         router.push("/download/linux");
       }
@@ -133,6 +151,7 @@ export default {
 
     return {
       platforms,
+      versions,
       faq,
       toggleAccordion,
       handlePlatformClick,
