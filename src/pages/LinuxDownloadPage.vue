@@ -1,10 +1,17 @@
 <template>
+      <!-- Sidebar for navigation -->
+    <aside class="sidebar">
+    <ul>
+      <li><a href="#flatpak-install">通用安装方式</a></li>
+      <li><a href="#arch-linux">Arch Linux可选方式</a></li>
+    </ul>
+  </aside>
   <div class="linux-download-page">
-    <header class="page-header">
-      <h1>Linux 安装说明</h1>
-    </header>
     <section class="instructions">
-      <h2>安装步骤</h2>
+      <header class="page-header">
+        <h1>Linux 安装说明</h1>
+      </header>
+      <h2 id="flatpak-install">通用安装方式</h2>
       <ol>
         <li>
           <strong>安装 Flatpak</strong><br />
@@ -50,8 +57,25 @@
           <code>flatpak install flathub org.freedesktop.Sdk//23.08</code>
         </li>
       </ol>
+
+      <h2 id="arch-linux">Arch Linux可选方式</h2>
+      <ol>
+        <li>
+          <strong>通过 AUR 仓库安装</strong><br />
+          使用 `yay` 或 `paru` 等 AUR 助手工具安装 KiCad：<br />
+          <code>yay -Syu kicad-hq</code><br />
+          或者通过 GitHub 仓库手动安装：<br />
+          <a href="https://github.com/taotieren/aur-repo">https://github.com/taotieren/aur-repo</a>
+        </li>
+        <li>
+          <strong>验证安装</strong><br />
+          确认安装是否成功：<br />
+          <code>kicad</code>
+        </li>
+      </ol>
     </section>
   </div>
+
 </template>
 
 <script>
@@ -119,8 +143,48 @@ li strong {
   color: #333;
 }
 
-.instructions {
-  padding: 20px 30px;
+/* Sidebar styling */
+.sidebar {
+  width: 200px;
+  background-color: #f0f4f7;
+  padding: 20px;
+  right: 30px;
+  border-radius: 10px;
+  position: fixed;
+  top:  12ch; /* Stick to the top of the viewport */
+  height: fit-content;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  color: #005fa9;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .linux-download-page {
+    flex-direction: column; /* Stack sidebar and content vertically on small screens */
+  }
+
+  .sidebar {
+    margin-top: 20px; /* Add margin between sidebar and content */
+  }
 }
 
 ol li:not(:last-child) {

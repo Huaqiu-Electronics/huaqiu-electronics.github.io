@@ -51,12 +51,12 @@ export default {
 
     const versions = ref({
       "8.0.6": {
-        "download": "https://www.eda.cn/data/kicad-release/kicad-huaqiu-8.0.6-x86_64.exe.zip",
+        "download": "https://down.eda.cn/data/kicad-release/kicad-huaqiu-8.0.6-x86_64.exe.zip",
         "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.6-Release.html"
 
       },
       "8.0.7": {
-        "download": "https://www.eda.cn/data/kicad-release/kicad-huaqiu-8.0.7-x86_64.exe.zip",
+        "download": "https://down.eda.cn/data/kicad-release/kicad-huaqiu-8.0.7-x86_64.exe.zip",
         "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.7-Release.html"
       }
     });
