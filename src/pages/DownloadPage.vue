@@ -13,7 +13,7 @@
         </a>
 
         <a href="https://repology.org/project/kicad-hq/versions">
-          <img src="https://repology.org/badge/version-for-repo/aur/kicad-hq.svg" alt="AUR package">
+          <img src="https://img.shields.io/aur/version/kicad-hq" alt="AUR package">
       </a>
       </div>
     </header>
