@@ -2,6 +2,20 @@
   <div class="download-page">
     <header class="page-header">
       <h1>下载 KiCad 华秋发行版</h1>
+      <!-- Repo Badges -->
+      <div class="repo-badges">
+        <a href="https://github.com/Huaqiu-Electronics/kicad-win-builder">
+          <img src="https://img.shields.io/github/release-date/Huaqiu-Electronics/kicad-win-builder" alt="Update Date">
+        </a>
+
+        <a href="https://github.com/Huaqiu-Electronics/kicad-win-builder/releases">
+          <img src="https://img.shields.io/github/v/release/Huaqiu-Electronics/kicad-win-builder?logo=github" alt="Packaging status">
+        </a>
+
+        <a href="https://repology.org/project/kicad-hq/versions">
+          <img src="https://repology.org/badge/version-for-repo/aur/kicad-hq.svg" alt="AUR package">
+      </a>
+      </div>
     </header>
 
     <section class="download-section">
@@ -261,5 +275,12 @@ export default {
 .accordion-body {
   padding: 15px;
   background-color: #fff;
+}
+
+.repo-badges {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
 }
 </style>
