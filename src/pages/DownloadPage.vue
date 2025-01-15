@@ -9,12 +9,13 @@
         </a>
 
         <a href="https://github.com/Huaqiu-Electronics/kicad-win-builder/releases">
-          <img src="https://img.shields.io/github/v/release/Huaqiu-Electronics/kicad-win-builder?logo=github" alt="Packaging status">
+          <img src="https://img.shields.io/github/v/release/Huaqiu-Electronics/kicad-win-builder?logo=github"
+            alt="Packaging status">
         </a>
 
         <a href="https://repology.org/project/kicad-hq/versions">
           <img src="https://img.shields.io/aur/version/kicad-hq" alt="AUR package">
-      </a>
+        </a>
       </div>
     </header>
 
@@ -24,7 +25,8 @@
         <div v-for="platform in platforms" :key="platform.name" class="platform-card">
           <img :src="platform.logo" :alt="platform.name" class="platform-logo" />
           <h3>{{ platform.name }}</h3>
-          <a v-if="platform.downloadUrl" :href="platform.downloadUrl" class="download-button">下载</a>
+          <button v-if="platform.downloadUrl" @click="data_buried_pont(platform.downloadUrl)"
+            class="download-button">下载</button>
           <button v-else @click="handlePlatformClick(platform.name)" class="download-button">
             详情
           </button>
@@ -52,11 +54,12 @@
 </template>
 
 <script>
-import { ref ,computed } from "vue";
+import { ref, computed } from "vue";
 import windowsLogo from "@/assets/Windows.svg";
 import macosLogo from "@/assets/macos.svg";
 import linuxLogo from "@/assets/linux.svg";
 import { useRouter } from "vue-router";
+import { data_buried_pont } from "@/common";
 
 export default {
   name: "DownloadPage",
@@ -175,6 +178,7 @@ export default {
     };
 
     return {
+      data_buried_pont,
       platforms,
       versions,
       faq,

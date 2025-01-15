@@ -2,24 +2,12 @@
   <aside class="version-list-panel">
     <h3>版本历史</h3>
     <ul>
-      <li
-        v-for="(version, key) in sortedVersions"
-        :key="key"
-        :class="{ latest: version.latest }"
-      >
+      <li v-for="(version, key) in sortedVersions" :key="key" :class="{ latest: version.latest }">
         <span class="version-name">{{ key }}</span>
-        <a
-          :href="version['changelog']"
-          target="_blank"
-          class="version-link docs-link"
-          >更新日志</a
-        >
-        <a
-          :href="version['download']"
-          target="_blank"
-          class="version-link download-link"
-          >下载</a
-        >
+        <a :href="version['changelog']" target="_blank" class="version-link docs-link">更新日志</a>
+        <button @click="data_buried_pont(version['download'])" class="version-link download-link">
+          下载
+        </button>
         <span v-if="version.latest" class="badge">最新</span>
       </li>
     </ul>
@@ -35,6 +23,8 @@
 
 <script>
 import { computed } from "vue";
+import { data_buried_pont } from "@/common";
+
 
 export default {
   name: "VersionHistory",
@@ -55,7 +45,7 @@ export default {
     });
 
     return {
-      sortedVersions,
+      sortedVersions, data_buried_pont,
     };
   },
 };
@@ -71,7 +61,8 @@ export default {
   border-radius: 8px;
   padding: 15px;
   background-color: #f9f9f9;
-  max-width: 250px; /* Adjusted width for extra links */
+  max-width: 250px;
+  /* Adjusted width for extra links */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -106,11 +97,13 @@ export default {
 }
 
 .version-list-panel .version-link.docs-link {
-  color: #007bff; /* Blue for docs */
+  color: #007bff;
+  /* Blue for docs */
 }
 
 .version-list-panel .version-link.download-link {
-  color: #28a745; /* Green for download */
+  color: #28a745;
+  /* Green for download */
 }
 
 .version-list-panel .version-link:hover {
