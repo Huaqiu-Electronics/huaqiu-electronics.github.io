@@ -79,6 +79,10 @@ export default {
       "8.0.8": {
         "download": "https://down.eda.cn/data/kicad-release/kicad-huaqiu-8.0.8-x86_64.exe.zip",
         "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.8-Release.html"
+      },
+      "9.0.0-rc2": {
+        "download": "https://down.eda.cn/data/kicad-release/kicad-huaqiu-9.0.0-rc2-x86_64.exe.zip",
+        "changelog": "https://www.kicad.org/blog/2025/02/KiCad-Version-9.0.0-Release-Candidate-3-Available/"
       }
     });
 
