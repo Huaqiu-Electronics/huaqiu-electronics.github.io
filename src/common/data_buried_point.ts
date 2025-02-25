@@ -21,3 +21,4 @@ export async function data_buried_pont(url: string) {
     console.error("Error inserting DataBuriedPoint:", error);
   }
 }
+

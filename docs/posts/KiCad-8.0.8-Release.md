@@ -5,8 +5,6 @@ readingTime: false
 tag:
   - 宣发
   - KiCad
-top: 2
-sticky: 2 
 ---
 
 # KiCad 8.0.8 发布

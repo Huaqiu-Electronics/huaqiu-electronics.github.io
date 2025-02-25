@@ -59,33 +59,14 @@ import windowsLogo from "@/assets/Windows.svg";
 import macosLogo from "@/assets/macos.svg";
 import linuxLogo from "@/assets/linux.svg";
 import { useRouter } from "vue-router";
-import { data_buried_pont } from "@/common";
+import { data_buried_pont , gen_version_info_list , VERSIONS} from "@/common";
 
 export default {
   name: "DownloadPage",
   setup() {
     const router = useRouter();
 
-    const versions = ref({
-      "8.0.6": {
-        "download": "https://down.eda.cn/data/kicad-release/kicad-huaqiu-8.0.6-x86_64.exe.zip",
-        "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.6-Release.html"
-
-      },
-      "8.0.7": {
-        "download": "https://down.eda.cn/data/kicad-release/kicad-huaqiu-8.0.7-x86_64.exe.zip",
-        "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.7-Release.html"
-      },
-      "8.0.8": {
-        "download": "https://down.eda.cn/data/kicad-release/kicad-huaqiu-8.0.8-x86_64.exe.zip",
-        "changelog": "https://kicad.eda.cn/docs/posts/KiCad-8.0.8-Release.html"
-      },
-      "9.0.0-rc2": {
-        "download": "https://down.eda.cn/data/kicad-release/kicad-huaqiu-9.0.0-rc2-x86_64.exe.zip",
-        "changelog": "https://www.kicad.org/blog/2025/02/KiCad-Version-9.0.0-Release-Candidate-3-Available/"
-      }
-    });
-
+    const versions = ref(gen_version_info_list(VERSIONS));
     // Sort versions by semantic versioning and get the latest version
     const latestVersion = computed(() => {
       const sortedVersions = Object.keys(versions.value).sort((a, b) => {
