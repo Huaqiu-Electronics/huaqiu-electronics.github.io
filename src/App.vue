@@ -9,14 +9,17 @@
 </template>
 
 <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?9f7e4ca2aea2a0c4434bef192de9e498";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
 export default {
   data: () => ({
     icons: ['mdi-wechat', 'mdi-twitter', 'mdi-youtube', 'mdi-github'],
   }),
 };
 </script>
-
-
-
-
 <style scoped></style>
