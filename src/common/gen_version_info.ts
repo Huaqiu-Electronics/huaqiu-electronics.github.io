@@ -2,8 +2,8 @@ function gen_version_info(version: string) {
 
   return {
     [version]: {
-      download: version === "9.0.0" ?"https://www.kicad.org/blog/2025/02/Version-9.0.0-Released/" : `https://down.eda.cn/data/kicad-release/kicad-huaqiu-${version}-x86_64.exe.zip`,
-      changelog: `https://kicad.eda.cn/docs/posts/KiCad-${version}-Release.html`,
+      download: `https://down.eda.cn/data/kicad-release/kicad-huaqiu-${version}-x86_64.exe.zip`,
+      changelog:  version === "9.0.0" ? "https://www.kicad.org/blog/2025/02/Version-9.0.0-Released/" :  `https://kicad.eda.cn/docs/posts/KiCad-${version}-Release.html`,
     },
   };
 }
