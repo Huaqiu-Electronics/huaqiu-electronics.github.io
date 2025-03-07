@@ -9,7 +9,7 @@ export interface DataBuriedPoint {
 export async function data_buried_pont(url: string) {
   const dataBuriedPoint: DataBuriedPoint = {
     doc: `${window.location.href}:${url}`,
-    name: 'kicad_hq_distribution',
+    name: 'kicad_hq_distribution_download',
   };
 
   handleDownloadUrl(url);
