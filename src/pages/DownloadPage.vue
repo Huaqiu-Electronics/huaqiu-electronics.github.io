@@ -59,9 +59,8 @@ import windowsLogo from "@/assets/Windows.svg";
 import macosLogo from "@/assets/macos.svg";
 import linuxLogo from "@/assets/linux.svg";
 import { useRouter } from "vue-router";
-import { gen_version_info_list , VERSIONS ,download_hq_dist ,on_enter_page } from "@/common";
+import { gen_version_info_list , VERSIONS ,download_hq_dist } from "@/common";
 
-on_enter_page()
 export default {
   name: "DownloadPage",
   setup() {

@@ -9,6 +9,11 @@
 </template>
 
 <script>
+
+import { on_enter_page } from '@/common';
+
+on_enter_page()
+
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
@@ -16,6 +21,7 @@ var _hmt = _hmt || [];
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(hm, s);
 })();
+
 export default {
   data: () => ({
     icons: ['mdi-wechat', 'mdi-twitter', 'mdi-youtube', 'mdi-github'],
