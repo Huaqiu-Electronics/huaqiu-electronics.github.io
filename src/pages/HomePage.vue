@@ -23,7 +23,8 @@
 </template>
 
 <script setup lang="ts">
-//
+import { on_enter_page } from '@/common';
+on_enter_page()
 </script>
 
 <style scoped>

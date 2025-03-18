@@ -25,7 +25,7 @@
         <div v-for="platform in platforms" :key="platform.name" class="platform-card">
           <img :src="platform.logo" :alt="platform.name" class="platform-logo" />
           <h3>{{ platform.name }}</h3>
-          <button v-if="platform.downloadUrl" @click="data_buried_pont(platform.downloadUrl)"
+          <button v-if="platform.downloadUrl" @click="download_hq_dist(platform.downloadUrl)"
             class="download-button">下载</button>
           <button v-else @click="handlePlatformClick(platform.name)" class="download-button">
             详情
@@ -59,8 +59,9 @@ import windowsLogo from "@/assets/Windows.svg";
 import macosLogo from "@/assets/macos.svg";
 import linuxLogo from "@/assets/linux.svg";
 import { useRouter } from "vue-router";
-import { data_buried_pont , gen_version_info_list , VERSIONS} from "@/common";
+import { gen_version_info_list , VERSIONS ,download_hq_dist ,on_enter_page } from "@/common";
 
+on_enter_page()
 export default {
   name: "DownloadPage",
   setup() {
@@ -94,9 +95,6 @@ export default {
         instructionUrl: "/download/linux",
       }
     ]);
-
-
-
 
     const faq = ref([
       {
@@ -167,17 +165,16 @@ export default {
     };
 
     return {
-      data_buried_pont,
       platforms,
       versions,
       faq,
       toggleAccordion,
       handlePlatformClick,
+      download_hq_dist
     };
   },
 };
 </script>
-
 <style scoped>
 .download-page {
   font-family: Arial, sans-serif;

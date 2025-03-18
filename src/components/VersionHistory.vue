@@ -5,7 +5,7 @@
       <li v-for="(version, key) in sortedVersions" :key="key" :class="{ latest: version.latest }">
         <span class="version-name">{{ key }}</span>
         <a :href="version['changelog']" target="_blank" class="version-link docs-link">更新日志</a>
-        <button @click="data_buried_pont(version['download'])" class="version-link download-link">
+        <button @click="download_hq_dist(version['download'])" class="version-link download-link">
           下载
         </button>
         <span v-if="version.latest" class="badge">最新</span>
@@ -23,7 +23,7 @@
 
 <script>
 import { computed } from "vue";
-import { data_buried_pont } from "@/common";
+import { download_hq_dist } from "@/common";
 
 
 export default {
@@ -45,7 +45,8 @@ export default {
     });
 
     return {
-      sortedVersions, data_buried_pont,
+      sortedVersions,
+      download_hq_dist
     };
   },
 };
