@@ -10,7 +10,7 @@ import axios from "axios";
 async function data_buried_pont(dataBuriedPoint: DataBuriedPoint) {
   try {
     const response = await axios.post(
-      "https://www.eda.cn/data_buried_point",
+      "https://blog.eda.cn/data_buried_point",
       dataBuriedPoint
     );
     console.log("DataBuriedPoint inserted successfully:", response.data);
