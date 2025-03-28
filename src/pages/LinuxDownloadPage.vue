@@ -18,16 +18,8 @@
           <code>sudo apt install flatpak</code>
         </li>
         <li>
-          <strong>将域名映射到指定 IP 地址</strong><br />
-          <code>sudo vim /etc/hosts</code><br />
-          使用 vim 编辑器打开 `/etc/hosts` 并添加以下行：<br />
-          <code>175.6.14.183 kicad.huaqiu.com</code><br />
-          验证连接是否成功：<br />
-          <code>ping kicad.huaqiu.com</code>
-        </li>
-        <li>
           <strong>添加远程 KiCad 仓库</strong><br />
-          <code>flatpak remote-add --user repo https://kicad.huaqiu.com/kicadhuaqiu</code><br />
+          <code>flatpak remote-add --user repo https://kicaddownload.elecfans.com/kicadhuaqiu_v9.0.0</code><br />
           验证是否添加成功：<br />
           <code>flatpak remote-ls repo</code><br />
           如果报 GPG 验证错误，请进行下一步操作。
